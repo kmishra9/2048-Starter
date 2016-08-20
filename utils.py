@@ -173,8 +173,6 @@ def move(x, y, direction, board):
                        direction == "down");
     assert valid_direction, "Invalid direction passed in";  #Logical debug case
     
-    assert move_possible(x, y, board), "A move has to be possible to perform a move" #Error in swipe logic
-    
     #The new x and y for the current piece (adjacent's current position) are stored alongside adjacent (fewer ifs + redundant code)
     if   direction == "left":   adjacent = (starter.get_piece(x-1, y, board), x-1, y);
     elif direction == "right":  adjacent = (starter.get_piece(x+1, y, board), x+1, y);
