@@ -21,4 +21,4 @@ Using the code:
 	
 	To run: 	python3 starter_2048.py
 	
-	To test: 	python3 autograder.py 					<-- Note: All tests are going to pass, but the autograder is included for reference
+	To test: 	python3 autograder.py 					
