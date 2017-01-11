@@ -320,13 +320,15 @@ class _GetchWindows:
         import msvcrt
         return msvcrt.getch()
 
-#Check if the environment is GUI-runnable (no import error, Display available to output to) OR if only CLI is supported
+#Check if the environment is GUI-runnable (no import error, GUI is able to initialize) OR if only CLI is supported
 if GUI_runnable == None:
-    GUI_runnable = "DISPLAY" in os.environ
-
-if GUI_runnable:
-    root = Tk()
-    gui = gui_2048(root)
+    
+    try:
+        root = Tk()
+        gui = gui_2048(root)
+        GUI_runnable = True 
+    except:
+        GUI_runnable = False
     
 if getch == None:
     getch = _Getch()
