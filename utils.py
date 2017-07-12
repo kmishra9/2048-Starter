@@ -20,12 +20,12 @@ try:
     #Assigned to None because import was successful but $DISPLAY may not be set
     gui, GUI_runnable, = None, None
 except ImportError:
-    gui, GUI_runnable, = False, False
-    
+    gui, GUI_runnable, = False, False    
 #Importing standard libraries
 import random
 import os
 import time
+import sys
 
 
 ############################################################################################################
@@ -59,6 +59,20 @@ def pause(seconds):
     """
     time.sleep(seconds);
 
+def made_move(board):
+    for row in board:
+        for piece in row:
+            if piece != '*':
+                return True;
+    return False;
+
+def num_pieces(board):
+    num_pieces = 0
+    for row in board:
+        for piece in row:
+            if piece != '*':
+                num_pieces += 1;
+    return num_pieces;
 
 def make_board(N):
     """
@@ -316,12 +330,15 @@ class _GetchWindows:
     def __init__(self):
         import msvcrt
 
+
     def __call__(self):
         import msvcrt
         return msvcrt.getch()
 
 #Check if the environment is GUI-runnable (no import error, GUI is able to initialize) OR if only CLI is supported
-if GUI_runnable == None:
+script_name = os.path.basename(sys.argv[0])
+
+if GUI_runnable == None and script_name != 'ok':
     
     try:
         root = Tk()
@@ -329,7 +346,7 @@ if GUI_runnable == None:
         GUI_runnable = True 
     except:
         GUI_runnable = False
-    
+
 if getch == None:
     getch = _Getch()
 
