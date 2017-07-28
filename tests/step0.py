@@ -34,12 +34,13 @@ test = {
           >>> assert calls[0] == 'make_board', 'Make sure the first thing you do is create a new 4x4 board.'
           >>> assert calls[1] == 'get_key_press', 'Make sure you are getting the current key pressed.'
           >>> assert calls[2] == 'swipe_up', 'Make sure you have the correct associated key press value for the up arrow, and that you call the correct swipe function.'
-          >>> assert calls[3] == 'board_full', 'Make sure you are checking if the game is lost by checking if the board is full.'
-          >>> assert calls[5] == 'swipe_down', 'Make sure you have the correct associated key press value for the down arrow, and that you call the correct swipe function.'
-          >>> assert calls[8] == 'swipe_right', 'Make sure you have the correct associated key press value for the right arrow, and that you call the correct swipe function.'
-          >>> assert calls[11] == 'swipe_left', 'Make sure you have the correct associated key press value for the left arrow, and that you call the correct swipe function.'
-          >>> assert calls[14] == 'swap', 'Make sure you have the correct associated key press value for the space bar.'
-          >>> assert calls[18] == 'quit', 'Make sure you have the correct associated key press value for the letter q.'
+          >>> assert calls[4] == 'swipe_down', 'Make sure you have the correct associated key press value for the down arrow, and that you call the correct swipe function.'
+          >>> assert calls[6] == 'swipe_right', 'Make sure you have the correct associated key press value for the right arrow, and that you call the correct swipe function.'
+          >>> assert calls[8] == 'swipe_left', 'Make sure you have the correct associated key press value for the left arrow, and that you call the correct swipe function.'
+          >>> assert calls[10] == 'swap', 'Make sure you have the correct associated key press value for the space bar.'
+          >>> assert calls[13] == 'quit', 'Make sure you have the correct associated key press value for the letter q.'
+          >>> calls
+          ['make_board', 'get_key_press', 'swipe_up', 'get_key_press', 'swipe_down', 'get_key_press', 'swipe_right', 'get_key_press', 'swipe_left', 'get_key_press', 'swap', 'get_key_press', 'print', 'quit']
           """,
           'hidden': False,
           'locked': False
@@ -55,7 +56,7 @@ test = {
       >>> index = -1
       >>> calls = []
       >>> def get_key_press():
-      ...     global index 
+      ...     global index
       ...     if index == 5:
       ...        sys.exit()
       ...     calls.append('get_key_press')
