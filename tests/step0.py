@@ -89,6 +89,8 @@ test = {
       ...     return 1
       >>> def print_board(board):
       ...     return 1
+      >>> def have_lost(board):
+      ...     return False
       >>> starter.swipe_up = swipe_up
       >>> starter.swipe_down = swipe_down
       >>> starter.swipe_right = swipe_right
@@ -100,6 +102,7 @@ test = {
       >>> starter.end_move = end_move
       >>> starter.place_random = place_random
       >>> starter.print_board = print_board
+      >>> starter.have_lost = have_lost
       """,
       'teardown': '',
       'type': 'doctest'
